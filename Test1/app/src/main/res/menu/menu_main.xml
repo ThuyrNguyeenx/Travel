@@ -3,8 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.MainActivity">
     <item
-        android:id="@+id/action_settings"
+    android:id="@+id/action_Home"
+    android:orderInCategory="100"
+    android:title="@string/action_Home"
+    app:showAsAction="never" />
+    <item
+        android:id="@+id/action_Login"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/action_Login"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_Register"
+        android:orderInCategory="100"
+        android:title="@string/action_Register"
         app:showAsAction="never" />
 </menu>
