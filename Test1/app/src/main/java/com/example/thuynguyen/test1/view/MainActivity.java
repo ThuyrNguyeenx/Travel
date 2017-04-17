@@ -21,7 +21,6 @@ import com.example.thuynguyen.test1.control.CityDAO;
 import com.example.thuynguyen.test1.control.SQLiteController;
 import com.example.thuynguyen.test1.model.City;
 
-
 public class MainActivity extends AppCompatActivity {
 
     GridView gridview;
@@ -34,15 +33,12 @@ public class MainActivity extends AppCompatActivity {
     City city;
     Button btnBack, btnMap;
 
-    Bundle myBackupBundle;
-
     final int[] listImg = {R.drawable.hanoi, R.drawable.hcm, R.drawable.dn, R.drawable.cantho,
             R.drawable.haiphong,R.drawable.hue,R.drawable.laocai};
     final String[] name = {"Hà Nội", "Hồ Chí Minh", "Đà Nẵng", "Cần Thơ","Hải Phòng", "Huế","Lào Cai"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        myBackupBundle = savedInstanceState;
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -77,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 btnBack.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        onCreate(myBackupBundle);
+
                     }
                 });
                 btnMap.setOnClickListener(onClickMap);
@@ -117,27 +113,22 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_Home){
-            onCreate(myBackupBundle);
-        }
-        if (id == R.id.action_Login) {
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(intent);
-            return true;
-        }
-        if(id == R.id.action_Register){
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(intent);
-            return true;
+        switch(id){
+            case R.id.action_Home:
+
+                break;
+            case R.id.action_Login:
+                Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.action_Register:
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
-//    View.OnClickListener onClickBack = new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            onCreate(myBackupBundle);
-//        }
-//    };
+
     View.OnClickListener onClickMap = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
